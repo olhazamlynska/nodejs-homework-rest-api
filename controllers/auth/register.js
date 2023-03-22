@@ -23,7 +23,11 @@ const register = async (req, res) => {
     status: 'success',
     code: 201,
     data: {
-      user: { email: newUser.email, subscription: newUser.subscription },
+      user: {
+        email: newUser.email,
+        subscription: newUser.subscription,
+        avatarURL: newUser.avatarURL,
+      },
     },
   });
 };
