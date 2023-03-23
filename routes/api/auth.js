@@ -9,6 +9,8 @@ const {
   logout,
   updateSubscription,
   updateAvatar,
+  verifyEmail,
+  resendVerifyEmail,
 } = authController;
 
 const { validateBody, auth, upload } = require('../../middlewares');
@@ -18,6 +20,10 @@ const { schemas } = require('../../models/user');
 const router = express.Router();
 
 router.post('/register', validateBody(schemas.registerSchema), register);
+
+router.get('/verify/:verificationToken', verifyEmail);
+
+router.post('/verify', validateBody(schemas.emailSchema), resendVerifyEmail);
 
 router.get('/login', validateBody(schemas.loginSchema), login);
 
