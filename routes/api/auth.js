@@ -1,6 +1,7 @@
 const express = require('express');
 
 const { authController } = require('../../controllers');
+const { verifyEmail, resendVerifyEmail } = require('../../services');
 
 const {
   register,
@@ -9,8 +10,6 @@ const {
   logout,
   updateSubscription,
   updateAvatar,
-  verifyEmail,
-  resendVerifyEmail,
 } = authController;
 
 const { validateBody, auth, upload } = require('../../middlewares');
